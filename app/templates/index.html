@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: #16213e;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .temp { font-size: 4em; font-weight: bold; color: #e94560; }
+        .description { font-size: 1.2em; text-transform: capitalize; margin: 10px 0; }
+        .details { margin-top: 20px; font-size: 0.95em; color: #aaa; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>{{ weather.city }}</h1>
+        <div class="temp">{{ weather.temperature }}C</div>
+        <div class="description">{{ weather.description }}</div>
+        <div class="details">
+            <p>Feels like: {{ weather.feels_like }}C</p>
+            <p>Humidity: {{ weather.humidity }}%</p>
+        </div>
+    </div>
+</body>
+</html>

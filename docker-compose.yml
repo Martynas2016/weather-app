@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  weather-app:
+    build: ./app
+    container_name: weather-app
+    environment:
+      - WEATHER_API_KEY=${WEATHER_API_KEY}
+      - CITY=${CITY:-Wroclaw}
+    restart: always
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - weather-app
+    restart: always
